@@ -13,7 +13,6 @@ export default function HomeScreen({ navigation }) {
         title="View Rounds"
         onPress={() => navigation.navigate("Rounds")}
       />
-      <Button title="GPS" onPress={() => navigation.navigate("GPS")} />
       <Button title="View Stats" />
       <Button title="My Profile" />
     </View>

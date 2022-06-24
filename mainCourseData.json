@@ -1,0 +1,16 @@
+{
+  "id": 4803,
+  "address": {
+    "country": "USA",
+    "street": "2020 W Meeker Ave",
+    "city": "Kent",
+    "state": "Washington",
+    "zip": "98032"
+  },
+  "name": "Riverbend Golf Complex",
+  "phonenumber": "(253) 854 3673",
+  "coordinates": {
+    "lat": 47.3821,
+    "long": -122.2676
+  }
+}

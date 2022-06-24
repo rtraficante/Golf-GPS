@@ -8,17 +8,19 @@ import {
 } from "react-native";
 import MapView, { Marker } from "react-native-maps";
 import React, { useState, useEffect } from "react";
-import axios from "axios";
-import courseData from "../data.json";
+import { getDistanceFromLatLonInYards } from "../utils";
+import YardageBox from "./YardageBox";
 
-export default function GpsMap() {
-  const [course, setCourse] = useState({});
-  const [hole, setHole] = useState(courseData.resources[0]);
-
+export default function GpsMap({ hole }) {
   const lat = (hole.vectors[1].lat + hole.flagcoords.lat) / 2;
   const long = (hole.vectors[1].long + hole.flagcoords.long) / 2;
 
-  console.log(hole.number);
+  const distance = getDistanceFromLatLonInYards(
+    hole.vectors[1].lat,
+    hole.vectors[1].long,
+    hole.flagcoords.lat,
+    hole.flagcoords.long
+  );
 
   return (
     <View style={styles.container}>
@@ -50,13 +52,7 @@ export default function GpsMap() {
             longitude: hole.vectors[1].long,
           }}
         />
-        <SafeAreaView>
-          <Button
-            style={styles.button}
-            title="Next"
-            onPress={() => setHole(courseData.resources[hole.number])}
-          />
-        </SafeAreaView>
+        <YardageBox distance={distance} />
       </MapView>
     </View>
   );

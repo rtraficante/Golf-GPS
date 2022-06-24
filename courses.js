@@ -12,10 +12,10 @@ function request(opts) {
 
 const opts = {
   hostname: "api.golfbert.com",
-  path: "/v1/courses/4803/holes",
+  path: "/v1/courses/4803/",
   service: "execute-api",
   headers: {
-    "X-Amz-Date": "20220623T223232Z",
+    "X-Amz-Date": "20220624T202439Z",
     "x-api-key": "IqhN5gyUxf9jJvTO9WlvH91gObbeoyU86Sd9JQNY",
     "content-type": "application/x-www-form-urlencoded",
   },
