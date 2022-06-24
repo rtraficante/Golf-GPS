@@ -1,8 +1,11 @@
 import { View, Text, StyleSheet, TextInput } from "react-native";
 import React, { useState } from "react";
 
-export default function NewRound() {
+
+export default function NewRound({navigation}) {
   const [course, setCourse] = useState();
+
+
 
   return (
     <View>
