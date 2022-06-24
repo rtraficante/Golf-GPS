@@ -8,7 +8,7 @@ import {
 } from "react-native";
 import MapView, { Marker } from "react-native-maps";
 import React, { useState, useEffect } from "react";
-import { getDistanceFromLatLonInYards } from "../utils";
+import { getDistanceFromLatLonInYards, calcZoom } from "../utils";
 import YardageBox from "./YardageBox";
 
 export default function GpsMap({ hole }) {
@@ -36,8 +36,8 @@ export default function GpsMap({ hole }) {
           },
           pitch: 0,
           heading: hole.rotation * 50,
-          altitude: 900,
-          zoom: 17.5,
+          altitude: 0,
+          zoom: calcZoom(distance),
         }}
       >
         <Marker

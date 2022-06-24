@@ -16,3 +16,19 @@ export function getDistanceFromLatLonInYards(lat1, lon1, lat2, lon2) {
 function deg2rad(deg) {
   return deg * (Math.PI / 180);
 }
+
+export function calcZoom(distance) {
+  if (distance > 100 && distance <= 130) {
+    return 19.3;
+  } else if (distance > 130 && distance <= 160) {
+    return 18.7;
+  } else if (distance > 160 && distance <= 220) {
+    return 18.3;
+  } else if (distance > 220 && distance <= 300) {
+    return 17.6;
+  } else if (distance > 300 && distance <= 400) {
+    return 17.3;
+  } else {
+    return 17;
+  }
+}
