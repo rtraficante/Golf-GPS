@@ -5,6 +5,7 @@ import {
   Dimensions,
   Button,
   SafeAreaView,
+  Image,
 } from "react-native";
 import MapView, { Marker } from "react-native-maps";
 import React, { useState, useEffect } from "react";
@@ -45,13 +46,17 @@ export default function GpsMap({ hole }) {
             latitude: hole.flagcoords.lat,
             longitude: hole.flagcoords.long,
           }}
-        />
+        >
+          <Image source={require("../assets/golf_flag.png")} />
+        </Marker>
         <Marker
           coordinate={{
             latitude: hole.vectors[1].lat,
             longitude: hole.vectors[1].long,
           }}
-        />
+        >
+          <Image source={require("../assets/tee.png")} />
+        </Marker>
         <YardageBox distance={distance} />
       </MapView>
     </View>

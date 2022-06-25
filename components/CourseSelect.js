@@ -5,7 +5,7 @@ import axios from "axios";
 import { useDispatch } from "react-redux";
 import { setCourse, setHoles } from "../slices/course";
 
-const CourseSelect = ({ navigation, course, holes }) => {
+const CourseSelect = ({ navigation, course }) => {
   const dispatch = useDispatch();
   const { street, city, state, zip } = course.address;
   return (
@@ -15,6 +15,7 @@ const CourseSelect = ({ navigation, course, holes }) => {
           `http://localhost:3000/api/courses/${course.id}/holes`
         );
         dispatch(setHoles(data));
+        dispatch(setCourse(course));
         navigation.navigate("GPS");
       }}
       style={[
