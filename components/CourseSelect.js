@@ -1,6 +1,7 @@
 import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
 import React from "react";
 import tw from "tailwind-react-native-classnames";
+import axios from "axios";
 import { useDispatch } from "react-redux";
 import { setCourse, setHoles } from "../slices/course";
 
@@ -9,9 +10,11 @@ const CourseSelect = ({ navigation, course, holes }) => {
   const { street, city, state, zip } = course.address;
   return (
     <TouchableOpacity
-      onPress={() => {
-        dispatch(setCourse(course));
-        dispatch(setHoles(holes));
+      onPress={async () => {
+        const { data } = await axios.get(
+          `http://localhost:3000/api/courses/${course.id}/holes`
+        );
+        dispatch(setHoles(data));
         navigation.navigate("GPS");
       }}
       style={[

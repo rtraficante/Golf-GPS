@@ -7,7 +7,7 @@ import { useSelector } from "react-redux";
 
 const MapScreen = () => {
   const holes = useSelector((state) => state.course.holes);
-  const [hole, setHole] = useState(holes[0]);
+  const [hole, setHole] = useState(holes.resources[0]);
 
   return (
     <View>
