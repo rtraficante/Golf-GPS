@@ -2,12 +2,18 @@ import { StyleSheet, Text, View, Button, SafeAreaView } from "react-native";
 import React, { useState } from "react";
 
 const GpsMenu = ({ setHole, courseData, hole, navigation }) => {
-  const [holeNum, setHoleNum] = useState(1);
-
   const handleHoleChange = (direction) => {
-    direction === "next" ? setHoleNum(holeNum + 1) : setHoleNum(holeNum - 1);
-    const hole = courseData.resources.find((val) => val.number === holeNum);
-    setHole(hole);
+    if (direction === "next") {
+      const newHole = courseData.resources.find(
+        (val) => val.number === hole.number + 1
+      );
+      setHole(newHole);
+    } else {
+      const newHole = courseData.resources.find(
+        (val) => val.number === hole.number - 1
+      );
+      setHole(newHole);
+    }
   };
 
   return (
@@ -27,7 +33,7 @@ const GpsMenu = ({ setHole, courseData, hole, navigation }) => {
           style={styles.button}
           color="black"
           title="Enter Score"
-          onPress={() => navigation.navigate('Scorecard')}
+          onPress={() => navigation.navigate("Scorecard")}
         />
         {hole.number === 18 ? (
           <Button style={styles.button} title="Next" disabled />
