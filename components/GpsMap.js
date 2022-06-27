@@ -11,6 +11,7 @@ import MapView, { Marker } from "react-native-maps";
 import React, { useState, useEffect } from "react";
 import { getDistanceFromLatLonInYards, calcZoom } from "../utils";
 import YardageBox from "./YardageBox";
+import HoleNumberBox from "./HoleNumberBox";
 
 export default function GpsMap({ hole }) {
   const lat = (hole.vectors[1].lat + hole.flagcoords.lat) / 2;
@@ -58,6 +59,7 @@ export default function GpsMap({ hole }) {
           <Image source={require("../assets/tee.png")} />
         </Marker>
         <YardageBox distance={distance} />
+        <HoleNumberBox holeNumber={hole.number} />
       </MapView>
     </View>
   );
