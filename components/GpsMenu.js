@@ -1,7 +1,15 @@
 import { StyleSheet, Text, View, Button, SafeAreaView } from "react-native";
-import React from "react";
+import React, { useState } from "react";
 
 const GpsMenu = ({ setHole, courseData, hole }) => {
+  const [holeNum, setHoleNum] = useState(1);
+
+  const handleHoleChange = (direction) => {
+    direction === "next" ? setHoleNum(holeNum + 1) : setHoleNum(holeNum - 1);
+    const hole = courseData.resources.find((val) => val.number === holeNum);
+    setHole(hole);
+  };
+
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.buttonContainer}>
@@ -12,7 +20,7 @@ const GpsMenu = ({ setHole, courseData, hole }) => {
             style={styles.button}
             color="black"
             title="Previous"
-            onPress={() => setHole(courseData.resources[hole.number - 2])}
+            onPress={() => handleHoleChange("previous")}
           />
         )}
         <Button
@@ -28,7 +36,7 @@ const GpsMenu = ({ setHole, courseData, hole }) => {
             color="black"
             style={styles.button}
             title="Next"
-            onPress={() => setHole(courseData.resources[hole.number])}
+            onPress={() => handleHoleChange("next")}
           />
         )}
       </View>
