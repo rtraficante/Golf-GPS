@@ -39,8 +39,8 @@ const Scorecard = () => {
 
   return (
     <SafeAreaView>
-      <Table borderStyle={{ borderWidth: 2, borderColor: "#c8e1ff" }}>
-        <Row data={tableHead} textStyle={styles.text} />
+      <Table borderStyle={{ borderWidth: 2, borderColor: "grey" }}>
+        <Row data={tableHead} textStyle={styles.text} style={styles.head} />
         <Rows data={teeboxes} textStyle={styles.text} />
       </Table>
     </SafeAreaView>
@@ -54,4 +54,5 @@ const styles = StyleSheet.create({
     textAlign: "center",
     margin: 6,
   },
+  head: { height: 40, backgroundColor: "lightgreen" },
 });
