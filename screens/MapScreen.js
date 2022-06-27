@@ -4,7 +4,7 @@ import GpsMap from "../components/GpsMap";
 import GpsMenu from "../components/GpsMenu";
 import { useSelector } from "react-redux";
 
-const MapScreen = () => {
+const MapScreen = ({ navigation }) => {
   const holes = useSelector((state) => state.course.holes);
   const course = useSelector((state) => state.course.course);
   const [hole, setHole] = useState(holes.resources[0]);
@@ -12,7 +12,12 @@ const MapScreen = () => {
   return (
     <View>
       <GpsMap hole={hole} />
-      <GpsMenu setHole={setHole} courseData={holes} hole={hole} />
+      <GpsMenu
+        setHole={setHole}
+        courseData={holes}
+        hole={hole}
+        navigation={navigation}
+      />
     </View>
   );
 };

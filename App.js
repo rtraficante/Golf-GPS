@@ -7,6 +7,7 @@ import MapScreen from "./screens/MapScreen";
 import CourseSelect from "./components/CourseSelect";
 import { Provider } from "react-redux";
 import { store } from "./store";
+import Scorecard from "./components/Scorecard";
 
 const Stack = createNativeStackNavigator();
 
@@ -19,6 +20,7 @@ export default function App() {
           <Stack.Screen name="Rounds" component={PreviousRounds} />
           <Stack.Screen name="Start New Round" component={NewRound} />
           <Stack.Screen name="GPS" component={MapScreen} />
+          <Stack.Screen name="Scorecard" component={Scorecard} />
         </Stack.Navigator>
       </NavigationContainer>
     </Provider>

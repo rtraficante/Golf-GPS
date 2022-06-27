@@ -3,7 +3,7 @@ import React from "react";
 import tw from "tailwind-react-native-classnames";
 import axios from "axios";
 import { useDispatch } from "react-redux";
-import { setCourse, setHoles } from "../slices/course";
+import { setCourse, setHoles, setScorecard } from "../slices/course";
 
 const CourseSelect = ({ navigation, course }) => {
   const dispatch = useDispatch();
@@ -11,10 +11,14 @@ const CourseSelect = ({ navigation, course }) => {
   return (
     <TouchableOpacity
       onPress={async () => {
-        const { data } = await axios.get(
+        const holes = await axios.get(
           `http://localhost:3000/api/courses/${course.id}/holes`
         );
-        dispatch(setHoles(data));
+        const scorecard = await axios.get(
+          `http://localhost:3000/api/courses/${course.id}/scorecard`
+        );
+        dispatch(setScorecard(scorecard.data));
+        dispatch(setHoles(holes.data));
         dispatch(setCourse(course));
         navigation.navigate("GPS");
       }}

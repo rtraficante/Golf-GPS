@@ -1,7 +1,7 @@
 import { StyleSheet, Text, View, Button, SafeAreaView } from "react-native";
 import React, { useState } from "react";
 
-const GpsMenu = ({ setHole, courseData, hole }) => {
+const GpsMenu = ({ setHole, courseData, hole, navigation }) => {
   const [holeNum, setHoleNum] = useState(1);
 
   const handleHoleChange = (direction) => {
@@ -27,7 +27,7 @@ const GpsMenu = ({ setHole, courseData, hole }) => {
           style={styles.button}
           color="black"
           title="Enter Score"
-          onPress={() => {}}
+          onPress={() => navigation.navigate('Scorecard')}
         />
         {hole.number === 18 ? (
           <Button style={styles.button} title="Next" disabled />
