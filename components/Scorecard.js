@@ -23,7 +23,6 @@ const Scorecard = () => {
       const { data } = await axios.get(
         `http://localhost:3000/api/courses/${course.id}/scorecard`
       );
-      console.log(data);
       setScorecard(data);
     };
     getData();
