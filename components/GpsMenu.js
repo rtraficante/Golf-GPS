@@ -32,7 +32,7 @@ const GpsMenu = ({ setHole, courseData, hole, navigation }) => {
         <Button
           style={styles.button}
           color="black"
-          title="Enter Score"
+          title="Scorecard"
           onPress={() => navigation.navigate("Scorecard")}
         />
         {hole.number === 18 ? (
